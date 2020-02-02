@@ -23,4 +23,4 @@ print("This sentance has the numbers " + str(number_1) + str(number_2) + str(num
 print("This sentance has the numbers %d%d%d%d as well as some words like %s and %s" % (number_1, number_2, number_3, number_4, strang, strung))
 
 # This is much cleaner as you can write out your sentance without interuption and not have to worry about the interuptions and can organize all of your variables together at the end
-# Also better to avoid bugs as the + signs can become tricky to keep track of and it would be easy to forget to convert the type of a variable to a string 
+# Also better to avoid bugs as the + signs can become tricky to keep track of and it would be easy to forget to convert the type of a variable to a string
