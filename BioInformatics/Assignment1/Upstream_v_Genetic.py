@@ -56,7 +56,9 @@ reverse_comp_seq = reverse_comp_seq.replace('g', 'C')
 print("Gene - Strand: " + reverse_comp_seq)
 print("\n----------------------------------------------------\n")
 # Print sequence with ATG highlighted
-# ...
+lower_seq = some_sequence.lower()
+highlighted_ATG = lower_seq.replace('atg', 'ATG', 1)
+print("Hightlighted ATG sequence: %s" % highlighted_ATG)
 # ...
 # Compute AT-richness of upstream sequence
 #number_A = # ...
