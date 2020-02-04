@@ -1,4 +1,4 @@
-BIOL/CMPU-377
+#BIOL/CMPU-377
 # Spring 2020
 # Project 1 Starter code
 # DNA: Playing with Strings
@@ -19,7 +19,7 @@ print("Starting sequence is: %s " % some_sequence)
 some_sequence = some_sequence.upper() 
 print("Converted to uppercase: %s " % some_sequence)
 # get the length of sequence
-seq_length = some_sequence.len() 
+seq_length = len(some_sequence)
 print("Length of starting sequence is: %d" % seq_length)
 print("\n---------------------------------------------\n")
 # get the position of the start codon &quot;ATG&quot; and the next two codons
@@ -34,7 +34,7 @@ print("\tfollowed by %s in position (bp) %d" % (codon_3, (codon_3_pos+1)))
 print("\n----------------------------------------------\n")
 # get the upstream and genic sequences
 upstream_seq, ATG, genic_seq = some_sequence.partition("ATG")
-upstream_len = upstream_seq.len()
+upstream_len = len(upstream_seq)
 
 # ...
 # ...
@@ -47,7 +47,11 @@ reverse_seq = genic_seq[::-1] # neat trick to reverse a string
 # hint #2: replace &quot;a&quot;s with &quot;T&quot;s, &quot;t&quot;s with &quot;A&quot;s,
 # &quot;c&quot;s with &quot;G&quot;s, and &quot;g&quot;s with &quot;C&quot;s
 #
-reverse_seq = reverse_seq.lower()
+reverse_comp_seq = reverse_seq.lower()
+reverse_comp_seq = reverse_comp_seq.replace('a', 'T')
+reverse_comp_seq = reverse_comp_seq.replace('t', 'A')
+reverse_comp_seq = reverse_comp_seq.replace('c', 'G')
+reverse_comp_seq = reverse_comp_seq.replace('g', 'C')
 
 print("Gene - Strand: " + reverse_comp_seq)
 print("\n----------------------------------------------------\n")
@@ -55,8 +59,8 @@ print("\n----------------------------------------------------\n")
 # ...
 # ...
 # Compute AT-richness of upstream sequence
-number_A = # ...
-number_T = # ...
+#number_A = # ...
+#number_T = # ...
 print("AT-richness:")
 # ...
 # ...
