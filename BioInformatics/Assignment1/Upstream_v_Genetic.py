@@ -35,12 +35,22 @@ print("\n----------------------------------------------\n")
 # get the upstream and genic sequences
 upstream_seq, ATG, genic_seq = some_sequence.partition("ATG")
 upstream_len = len(upstream_seq)
+print("Upstream sequence is: %s" % upstream_seq)
+print("Upstream length is: %d" % upstream_len)
+# ...
+# ...
+print("\n----------------------------------------------\n")
 
-# ...
-# ...
-print("Gene + Strand: " + genic_seq + "\n")
+combined_genic = ATG + genic_seq
+
+print("Gene sequence is: %s" % combined_genic)
+print("Gene length is: %d" % len(combined_genic))
+
+print("\n----------------------------------------------\n")
+
+print("Gene + Strand: " + combined_genic + "\n")
 # Compute the reverse complement sequence
-reverse_seq = genic_seq[::-1] # neat trick to reverse a string
+reverse_seq = combined_genic[::-1] # neat trick to reverse a string
 # Now swap A&#39;s and T&#39;s, C&#39;s and G&#39;s
 # hint #1: convert reverse_seq to lower case, then use
 # replace() method to complement nucleotides one at a time.
@@ -61,9 +71,9 @@ highlighted_ATG = lower_seq.replace('atg', 'ATG', 1)
 print("Hightlighted ATG sequence: %s" % highlighted_ATG)
 # ...
 # Compute AT-richness of upstream sequence
-#number_A = # ...
-#number_T = # ...
+number_A = upstream_seq.count('A')
+number_T = upstream_seq.count('T')
 print("AT-richness:")
-# ...
-# ...
+print("A: %d" % number_A)
+print("T: %d" % number_T)
 print("\n----------------------------------------------------\n")
