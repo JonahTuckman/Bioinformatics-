@@ -9,6 +9,8 @@
 # regions of a sequence. A report is printed, a sample
 # of which is saved in file: genic-report.txt
 #
+# Run Command:  python Upstream_v_Genetic.py > genic-report.txt
+#
 #-----------------------------------------------------------------
 print("\n+++++++++ Upstream and Genic Report ++++++++++++++++\n")
 
