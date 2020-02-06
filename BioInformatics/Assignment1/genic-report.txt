@@ -1,0 +1,38 @@
+
++++++++++ Upstream and Genic Report ++++++++++++++++
+
+Starting sequence is: cgccatataatgctcgtccgcgcccta 
+Converted to uppercase: CGCCATATAATGCTCGTCCGCGCCCTA 
+Length of starting sequence is: 27
+
+---------------------------------------------
+
+ATG start codon begins in position (bp) 10 
+	followed by CTC in position (bp) 13
+	followed by GTC in position (bp) 16
+
+----------------------------------------------
+
+Upstream sequence is: CGCCATATA
+Upstream length is: 9
+
+----------------------------------------------
+
+Gene sequence is: ATGCTCGTCCGCGCCCTA
+Gene length is: 18
+
+----------------------------------------------
+
+Gene + Strand: ATGCTCGTCCGCGCCCTA
+
+Gene - Strand: TAGGGCGCGGACGAGCAT
+
+----------------------------------------------------
+
+Hightlighted ATG sequence: cgccatataATGctcgtccgcgcccta
+AT-richness:
+A: 3
+T: 2
+
+----------------------------------------------------
+
