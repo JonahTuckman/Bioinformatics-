@@ -1,0 +1,17 @@
+Jonah Tuckman
+
+a. Are the sequences all roughly the same length?
+
+Yes all the sequences are roughly the same length.
+
+b. What do the asterisks and colons represent?
+
+They represent alignment patterns as we spoke of in class. Spaces between that have been added in order to properly align.
+
+c. Is there a pattern to the conserved regions (are the conserved amino acids randomly located, or clustered into strings of conserved regions)
+
+They are located into strings of conserved regions which indicates a pattern of conservation of these regions. 
+
+d. Does the level of  “conservation” indicated by the alignment suggest that these sequences represent  homologous genes? 
+
+I would think that it does indicate that they represent homologous genes. 
