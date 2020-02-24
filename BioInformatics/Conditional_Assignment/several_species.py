@@ -5,7 +5,7 @@ import pandas as pd
 data = pd.read_csv('data.csv', header = None)
  
 
-# itterating over the different rows so that I can check the name
+# iterating over the different rows so that I can check the name
 for index, row in data.iterrows():
     # conditional check
     if row[0] == 'Drosophila melanogaster' or row[0] == 'Drosophila simulans':
