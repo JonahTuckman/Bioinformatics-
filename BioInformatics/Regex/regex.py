@@ -1,6 +1,6 @@
 #BIOL/CMPU-377
 # Spring 2020
-# Project 1 Starter code
+# Project 3 Regex
 # DNA: Playing with Strings
 # Author: Jonah Tuckman
 #-----------------------------------------------------------------
@@ -9,6 +9,8 @@ import re
 # Summary: This Python program isolates the upstream and genic
 # regions of a sequence. A report is printed, a sample
 # of which is saved in file: genic-report.txt
+#
+# This time doing the work using the re (regex) package 
 #
 # Run Command:  python Upstream_v_Genetic.py > genic-report.txt
 #
