@@ -1,0 +1,16 @@
+EST	EST Length	Query Start Position
+Locus_89379_Transcript_1	3623	2244
+Locus_82449_Transcript_1	3961	421
+Locus_82448_Transcript_1	4162	421
+Locus_82446_Transcript_1	3999	407
+Locus_97156_Transcript_1	4598	4489
+Locus_21618_Transcript_1	1175	29
+Locus_124359_Transcript_1	2118	659
+Locus_125402_Transcript_3	1999	92
+Locus_125403_Transcript_1	1880	92
+Locus_129236_Transcript_1	5316	73
+Locus_129235_Transcript_1	5557	73
+Locus_129234_Transcript_1	5212	73
+Locus_52816_Transcript_1	2177	1123
+Locus_52819_Transcript_1	1860	759
+Locus_52818_Transcript_1	1212	164
