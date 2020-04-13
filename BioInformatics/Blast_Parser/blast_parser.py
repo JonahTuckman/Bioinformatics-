@@ -80,19 +80,19 @@ for line in blast_file:
             state = S3
             
     elif state = S3:
-        match = re.search(r'^.*No hits found*$')
+        match = re.search(r'^.*No hits found*$', line)
         if match:
             current_EST = match.group(3)
             state = S1
             
     elif state == S3:
-        match = re.search(r'^.*Query*$')
+        match = re.search(r'^.*Query*$', line)
         if match:
             current_EST = match.group(3)
             state = S4
             
     elif state = S4:
-        match = re.search(r'^.*Sbject*$')
+        match = re.search(r'^.*Sbject*$', line )
         if match:
             current_EST = match.group(4)
             state = S1
