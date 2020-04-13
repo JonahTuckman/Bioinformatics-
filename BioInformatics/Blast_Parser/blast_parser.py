@@ -79,7 +79,7 @@ for line in blast_file:
             current_EST = match.group(2)
             state = S3
             
-    elif state = S3:
+    elif state == S3:
         match = re.search(r'^.*No hits found*$')
         if match:
             current_EST = match.group(3)
@@ -91,7 +91,7 @@ for line in blast_file:
             current_EST = match.group(3)
             state = S4
             
-    elif state = S4:
+    elif state == S4:
         match = re.search(r'^.*Sbject*$')
         if match:
             current_EST = match.group(4)
