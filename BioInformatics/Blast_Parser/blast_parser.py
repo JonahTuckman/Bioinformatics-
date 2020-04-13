@@ -61,6 +61,10 @@ blast_file = open(blast_file_name, 'r')
 
 for line in blast_file:
 
+    # Below I have written a state machine which travels through states using the 'state' variable as the state tracker
+    # Each conditional will change the state to its appropraite response and then the looping will continue its checks
+    # The regex uses the form of  '^.* WORDS *$' to check for matching lines
+    
     # if we're looking for the new Query= line...
     if state == S1:
         match = re.search(r'^Query=\s+([\w\.]+)', line)
