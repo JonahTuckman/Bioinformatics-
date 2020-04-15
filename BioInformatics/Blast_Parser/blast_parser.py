@@ -74,27 +74,32 @@ for line in blast_file:
             state = S2         # no other states to transition to yet
             
     elif state == S2:
-        match = re.search(r'^.*nnn letters*$', line)
+        match = re.search(r'(\d*)\sletters', line)
         if match:
-            current_EST = match.group(2)
+            length = match.group(1)
             state = S3
+   
+    elif state == S3:
+        match = re.search(r'^Query:\s+([\w\.]+)', line)
+        if match:
+            Query = match.group(1)
+            m = match.group(2)
+            if m == "M":
+                state = S4
             
     elif state == S3:
         match = re.search(r'^.*No hits found*$', line)
         if match:
-            current_EST = match.group(3)
             state = S1
-            
-    elif state == S3:
-        match = re.search(r'^Query:\s+([\w\.]+)', line)
-        if match:
-            current_EST = match.group(3)
-            state = S4
-            
+           
+    # We need to print in state 4 solely
     elif state == S4:
         match = re.search(r'^Sbjct:\s+([\w\.]+)', line )
         if match:
-            current_EST = match.group(4)
+            first_EST = match.group(1)
+            second_EST = match.group(2)
+            if second_EST == "M":
+                print("%s %d %s" % current_EST, length, Query)
             state = S1
     # add elif's for the missing states, one at a time
     # advice: add the missing states in order - S2, S3, S4
