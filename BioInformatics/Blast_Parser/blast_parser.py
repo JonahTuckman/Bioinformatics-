@@ -80,21 +80,18 @@ for line in blast_file:
             state = S3
    
     elif state == S3:
-        match = re.search(r'^Query:\s+([\w\.]+)', line)
+        match = re.search(r'^Query:\s+(\d+)\s+(\w)', line)
         if match:
             Query = match.group(1)
-            m = match.group(2)
-            if m == "M":
+            m_lett = match.group(2)
+            if m_lett == "M":
                 state = S4
-            
-    elif state == S3:
-        match = re.search(r'^.*No hits found*$', line)
-        if match:
+        else:
             state = S1
            
     # We need to print in state 4 solely
     elif state == S4:
-        match = re.search(r'^Sbjct:\s+([\w\.]+)', line )
+        match = re.search(r'^Sbjct:\s+(\d+)\s+(\w)', line )
         if match:
             first_EST = match.group(1)
             second_EST = match.group(2)
