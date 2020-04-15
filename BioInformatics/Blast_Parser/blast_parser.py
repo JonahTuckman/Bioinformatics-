@@ -82,7 +82,7 @@ for line in blast_file:
     elif state == S3:
         match = re.search(r'^Query:\s+(\d+)\s+(\w)', line)
         if match:
-            Query = match.group(1)
+            query = match.group(1)
             m_lett = match.group(2)
             if m_lett == "M":
                 state = S4
@@ -96,7 +96,8 @@ for line in blast_file:
             first_EST = match.group(1)
             second_EST = match.group(2)
             if second_EST == "M":
-                print("%s %d %s" % (current_EST, length, Query))
+            # Not printing anything so I would expect that the error is somewhere in this area
+                print("%s %d %s" % (current_EST, length, query))
         state = S1
     # add elif's for the missing states, one at a time
     # advice: add the missing states in order - S2, S3, S4
