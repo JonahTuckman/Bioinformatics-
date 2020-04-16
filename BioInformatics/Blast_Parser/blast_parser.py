@@ -81,7 +81,10 @@ for line in blast_file:
    
     elif state == S3:
     # Here is the issue, with the regex in state 3
+        match_nohits = re.search(r'No\shits\sfound', line)
         match = re.search(r'^Query:\s+([0-9]+)\s+M', line)
+        if match_nohits:
+            state = S1
         if match:
             query = match.group(1)
             m_lett = match.group(2)
