@@ -74,14 +74,14 @@ for line in blast_file:
             state = S2         # no other states to transition to yet
             
     elif state == S2:
-    # Here is the issue, with the regex in state 2
         match = re.search(r'(\d+)\sletters', line)
         if match:
             length = match.group(1)
             state = S3
    
     elif state == S3:
-        match = re.search(r'^Query:\s+(\d+)\s+(\w)', line)
+    # Here is the issue, with the regex in state 3
+        match = re.search(r'^Query:\s+([0-9]+)\s+M', line)
         if match:
             query = match.group(1)
             m_lett = match.group(2)
