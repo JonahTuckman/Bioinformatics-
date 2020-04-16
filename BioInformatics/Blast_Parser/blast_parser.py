@@ -74,6 +74,7 @@ for line in blast_file:
             state = S2         # no other states to transition to yet
             
     elif state == S2:
+    # Here is the issue, with the regex in state 2
         match = re.search(r'(\d*)\sletters', line)
         if match:
             length = match.group(1)
