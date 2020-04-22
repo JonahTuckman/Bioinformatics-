@@ -74,28 +74,28 @@ for line in blast_file:
             state = S2         # no other states to transition to yet
             
     elif state == S2:
-        match = re.search(r'(\d+)\sletters', line)
+        match = re.search(r'\s+[(]([\w\.]+[,]?[^\s]+)\s+([\w\.]+)[)]', line)
         if match:
             length = match.group(1)
             state = S3
    
     elif state == S3:
     # Here is the issue, with the regex in state 3
-        match_nohits = re.search(r'No\shits\sfound', line)
-        match = re.search(r'^Query:\s+([0-9]+)\s+M', line)
-        if match_nohits:
-            state = S1
+        match_nohits = re.search(r'[*]+\s+No\s+hits\s+found\s+[*]+', line)
+        match = re.search(r'Query:\s+(([\w\.])+)\s+([\w\.])', line)
         if match:
             query = match.group(1)
             m_lett = match.group(2)
-            if m_lett == "M":
-                state = S4
+            state = S4
+                
+        if match_nohits:
+            state = S1
         else:
             state = S1
            
     # We need to print in state 4 solely
     elif state == S4:
-        match = re.search(r'Sbjct:\s+([0-9]+)\s+M', line)
+        match = re.search(r'Sbjct:\s+(([\w\.])+)\s+([\w\.])', line)
         if match:
             first_EST = match.group(1)
             second_EST = match.group(2)
