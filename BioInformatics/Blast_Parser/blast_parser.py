@@ -59,6 +59,7 @@ print("EST\tEST Length\tQuery Start Position")
 blast_file_name = "/home/joschwarz/public/blast/AipTransc_v_SwissProt.blastx"
 blast_file = open(blast_file_name, 'r')
 
+count = 0 #counter to be used to set alignemnts
 for line in blast_file:
 
     # Below I have written a state machine which travels through states using the 'state' variable as the state tracker
@@ -91,6 +92,7 @@ for line in blast_file:
             m_lett = match.group(3)
             print(m_lett)
             state = S4
+            count = 1
                 
         match_nohits = re.search(r'[*]+\s+No\s+hits\s+found\s+[*]+', line)
         if match_nohits:
@@ -101,7 +103,9 @@ for line in blast_file:
         #print("state4")
         # I am getting into state4, there is an error here
         match = re.search(r'Sbjct:\s+(([\w\.])+)\s+([\w\.])', line)
-        if match:
+        count += 1
+
+        if match and count == 3:
             #print("check")
             # We are getting here so the error is in the check below
             first = match.group(1)
@@ -115,6 +119,10 @@ for line in blast_file:
                 #print("done")
                 print("%s %d %s" % (current_EST, length, query))
                 state = S1
+                
+        match_first_al = re.search(r'(BLASTX 2.2.21)', line)
+        elif match_first_al:
+            state = S1
     # add elif's for the missing states, one at a time
     # advice: add the missing states in order - S2, S3, S4
 
