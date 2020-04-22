@@ -120,8 +120,9 @@ for line in blast_file:
                 print("%s %d %s" % (current_EST, length, query))
                 state = S1
                 
-        match_first_al = re.search(r'(BLASTX 2.2.21)', line)
-        elif match_first_al:
+        
+        #match_first_al = re.search(r'(BLASTX 2.2.21)', line)
+        elif re.search(r'(BLASTX 2.2.21)', line):
             state = S1
     # add elif's for the missing states, one at a time
     # advice: add the missing states in order - S2, S3, S4
