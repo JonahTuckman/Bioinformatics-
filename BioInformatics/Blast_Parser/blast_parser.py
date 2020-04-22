@@ -86,7 +86,7 @@ for line in blast_file:
         match = re.search(r'Query:\s+(([\w\.])+)\s+([\w\.])', line)
         if match:
             query = match.group(1)
-            m_lett = match.group(3)
+            m_lett = match.group(2)
             state = S4
                 
         match_nohits = re.search(r'[*]+\s+No\s+hits\s+found\s+[*]+', line)
@@ -102,7 +102,8 @@ for line in blast_file:
             #print("check")
             # We are getting here so the error is in the check below
             first = match.group(1)
-            second = match.group(3)
+            second = match.group(2)
+            print(second)
             
             # error is somewhere in this check
             if m_lett == "M" and second == "M":
