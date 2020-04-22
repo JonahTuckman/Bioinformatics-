@@ -102,7 +102,7 @@ for line in blast_file:
             #print("check")
             # We are getting here so the error is in the check below
             first = match.group(1)
-            second = match.group(2)
+            second = match.group(3)
             print(second)
             
             # error is somewhere in this check
