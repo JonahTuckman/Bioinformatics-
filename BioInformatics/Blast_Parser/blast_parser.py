@@ -90,7 +90,7 @@ for line in blast_file:
         if match:
             query = match.group(1)
             m_lett = match.group(3)
-            print(m_lett)
+            #print(m_lett)
             state = S4
             count = 1
                 
