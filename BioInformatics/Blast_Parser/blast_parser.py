@@ -83,6 +83,8 @@ for line in blast_file:
     elif state == S3:
         #print("state3")
     # Here is the issue, with the regex in state 3
+    # Error is here, only one match throughout the whole thing
+    # This error is why conditional isnt workign below
         match = re.search(r'Query:\s+(([\w\.])+)\s+([\w\.])', line)
         if match:
             query = match.group(1)
@@ -92,7 +94,7 @@ for line in blast_file:
                 
         match_nohits = re.search(r'[*]+\s+No\s+hits\s+found\s+[*]+', line)
         if match_nohits:
-            state = S1
+                state = S1
            
     # We need to print in state 4 solely
     elif state == S4:
