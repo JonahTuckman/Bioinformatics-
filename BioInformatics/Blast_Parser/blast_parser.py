@@ -74,14 +74,14 @@ for line in blast_file:
             state = S2         # no other states to transition to yet
             
     elif state == S2:
-        print("state2")
+        #print("state2")
         match = re.search(r'\s+[(]([\w\.]+[,]?[^\s]+)\s+([\w\.]+)[)]', line)
         if match:
             length = match.group(1)
             state = S3
    
     elif state == S3:
-        print("state3")
+        #print("state3")
     # Here is the issue, with the regex in state 3
         match = re.search(r'Query:\s+(([\w\.])+)\s+([\w\.])', line)
         if match:
@@ -95,13 +95,16 @@ for line in blast_file:
            
     # We need to print in state 4 solely
     elif state == S4:
-        print("state4")
+        #print("state4")
+        # I am getting into state4, there is an error here
         match = re.search(r'Sbjct:\s+(([\w\.])+)\s+([\w\.])', line)
         if match:
             first = match.group(1)
             second = match.group(2)
+            
             if m_lett == "M" and second == "M":
             # Not printing anything so I would expect that the error is somewhere in this area
+                print("done")
                 print("%s %d %s" % (current_EST, length, query))
                 state = S1
     # add elif's for the missing states, one at a time
