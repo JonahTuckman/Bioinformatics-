@@ -87,6 +87,7 @@ for line in blast_file:
         if match:
             query = match.group(1)
             m_lett = match.group(2)
+            print(m_lett)
             state = S4
                 
         match_nohits = re.search(r'[*]+\s+No\s+hits\s+found\s+[*]+', line)
@@ -103,7 +104,7 @@ for line in blast_file:
             # We are getting here so the error is in the check below
             first = match.group(1)
             second = match.group(3)
-            print(second)
+            #print(second)
             
             # error is somewhere in this check
             if m_lett == "M" and second == "M":
