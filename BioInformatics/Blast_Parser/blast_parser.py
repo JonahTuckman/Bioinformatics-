@@ -86,7 +86,7 @@ for line in blast_file:
         match = re.search(r'Query:\s+(([\w\.])+)\s+([\w\.])', line)
         if match:
             query = match.group(1)
-            m_lett = match.group(2)
+            m_lett = match.group(3)
             print(m_lett)
             state = S4
                 
