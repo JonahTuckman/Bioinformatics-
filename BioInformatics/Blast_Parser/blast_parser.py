@@ -117,7 +117,7 @@ for line in blast_file:
             # Not printing anything so I would expect that the error is somewhere in this area
             # Not getting here ever
                 #print("done")
-                print("%s %d %s" % (current_EST, length, query))
+                print("%s %s %s" % (current_EST, length, query))
                 state = S1
                 
         
