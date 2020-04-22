@@ -99,11 +99,14 @@ for line in blast_file:
         # I am getting into state4, there is an error here
         match = re.search(r'Sbjct:\s+(([\w\.])+)\s+([\w\.])', line)
         if match:
+            print("check")
             first = match.group(1)
             second = match.group(2)
             
+            # error is somewhere in this check
             if m_lett == "M" and second == "M":
             # Not printing anything so I would expect that the error is somewhere in this area
+            # Not getting here ever
                 print("done")
                 print("%s %d %s" % (current_EST, length, query))
                 state = S1
