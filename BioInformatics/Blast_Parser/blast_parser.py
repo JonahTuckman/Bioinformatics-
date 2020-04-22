@@ -94,7 +94,7 @@ for line in blast_file:
                 
         match_nohits = re.search(r'[*]+\s+No\s+hits\s+found\s+[*]+', line)
         if match_nohits:
-                state = S1
+            state = S1
            
     # We need to print in state 4 solely
     elif state == S4:
