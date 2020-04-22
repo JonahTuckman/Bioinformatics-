@@ -84,7 +84,7 @@ for line in blast_file:
         match = re.search(r'Query:\s+(([\w\.])+)\s+([\w\.])', line)
         if match:
             query = match.group(1)
-            m_lett = match.group(3)
+            m_lett = match.group(2)
             state = S4
                 
         match_nohits = re.search(r'[*]+\s+No\s+hits\s+found\s+[*]+', line)
@@ -96,11 +96,13 @@ for line in blast_file:
         match = re.search(r'Sbjct:\s+(([\w\.])+)\s+([\w\.])', line)
         if match:
             first = match.group(1)
-            second = match.group(3)
+            second = match.group(2)
             if m_lett == "M" and second == "M":
             # Not printing anything so I would expect that the error is somewhere in this area
                 print("%s %d %s" % (current_EST, length, query))
                 state = S1
+        elif re.search(r'(BLASTX 2.2.21)', line):
+            state = S1
     # add elif's for the missing states, one at a time
     # advice: add the missing states in order - S2, S3, S4
 
