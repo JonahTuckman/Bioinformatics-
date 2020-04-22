@@ -99,9 +99,9 @@ for line in blast_file:
         if match:
             first_EST = match.group(1)
             second_EST = match.group(2)
-            if second_EST == "M":
+            #if second_EST == "M":
             # Not printing anything so I would expect that the error is somewhere in this area
-                print("%s %d %s" % (current_EST, length, query))
+            print("%s %d %s" % (current_EST, length, query))
         state = S1
     # add elif's for the missing states, one at a time
     # advice: add the missing states in order - S2, S3, S4
