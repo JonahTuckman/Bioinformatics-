@@ -97,7 +97,7 @@ for line in blast_file:
         if match:
             first = match.group(1)
             second = match.group(2)
-            if second == "M":
+            if m_lett == "M" and second == "M":
             # Not printing anything so I would expect that the error is somewhere in this area
                 print("%s %d %s" % (current_EST, length, query))
                 state = S1
