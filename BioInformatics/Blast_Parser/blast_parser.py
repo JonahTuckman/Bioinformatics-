@@ -95,7 +95,7 @@ for line in blast_file:
            
     # We need to print in state 4 solely
     elif state == S4:
-        match = re.search(r'^Sbjct:\s+(\d+)\s+(\w)', line)
+        match = re.search(r'Sbjct:\s+([0-9]+)\s+M', line)
         if match:
             first_EST = match.group(1)
             second_EST = match.group(2)
