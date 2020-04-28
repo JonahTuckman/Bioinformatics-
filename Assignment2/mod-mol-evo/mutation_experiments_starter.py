@@ -28,7 +28,7 @@ import random
 
 # Global variables
 
-path = "/home/mlsmith/bioinf/mod-mol-evo/"  # replace mlsmith with your id
+path = "/home/jttuckman/Bioinformatics-/Assignment2/mod-mol-evo/"  # replace mlsmith with your id
 aa_codon_filename = path + "aa-codon-table.txt"
 
 codon_map = {}                           # dictionary: codon->AA
@@ -90,7 +90,17 @@ def strategy1(orig_DNA_seq, orig_prot_seq):
 #   Mutates 15% of nucleotides in third positions of codons 
 #############################################################################
 def strategy2(orig_DNA_seq, orig_prot_seq):  
-	return 0.0
+    new_seq = ""
+    for nuc in orig_DNA_seq:
+        if (random.random() < MUTATION_RATE):
+            new_seq = new_seq + rand_nuc()
+        else:
+            new_seq = new_seq + nuc
+
+        new_prot = translate(new_seq)
+
+        identity = calc_identity(new_prot, orig_prot_seq)
+    return identity
 
 
 #############################################################################
@@ -98,15 +108,26 @@ def strategy2(orig_DNA_seq, orig_prot_seq):
 # calculates the percent identity of the two given sequences.
 #############################################################################
 def calc_identity(seq1, seq2):
-    return 0.0
+    count = 0
+    for i in range(0, len(seq1)):
+            arr = seq2[:,i]
+            if arr == len(arr) * arr[0]:
+                count += 1
+            
+    return count * 100 / float(len(seq1[0]))
 
 
 #############################################################################
 # rand_nuc 
 # returns a random nucleotide from A, C, G, or T.
 #############################################################################
-def rand_nuc():
-    return random.choice( ['A', 'C', 'T', 'G'] )
+def rand_nuc(original):
+    condition = True
+    while condition:
+        choice = random.choice( ['A', 'C', 'T', 'G'] )
+        if choice != original:
+            condition = False
+    return choice
 
 
 
