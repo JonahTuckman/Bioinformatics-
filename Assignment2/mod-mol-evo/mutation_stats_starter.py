@@ -7,7 +7,7 @@
 # Program: mutation_stats.py 
 #
 # Written by: Marc Smith and Jodi Schwarz
-# Modified by: <your name here>
+# Modified by: Jonah Tuckman
 #
 # Description:  This program
 #
@@ -57,11 +57,11 @@ def main():
     # 2. Calculate the diversity of nucs in each column of  
     #    a 6-sequence alignment 
     #    (uncomment the next line after you implement calc_col_div() 
-    #div_counts = calc_col_div( seq1, seq2, seq3, seq4, seq5, seq6 )
+    div_counts = calc_col_div( seq1, seq2, seq3, seq4, seq5, seq6 )
 
     # 3. Calculate and print diversity statistics
     #    (uncomment the next line after you implement calc_codon_stats()
-    #calc_codon_stats( div_counts )
+    calc_codon_stats( div_counts )
 
 
 #############################################################################
@@ -86,23 +86,34 @@ def calc_col_div( seq1, seq2, seq3, seq4, seq5, seq6 ):
         # make a string out of each nuc in current column of alignment
         # --col contains all the nucs (and gaps) in current column 
         # col = ...
+        new_str = n1 + n2 + n3 + n4 + n5 + n6
 
         # count number of A's, C's, T's, and G's in this col
-        #num_a = ...
-        #num_c = ...
-        #num_t = ...
-        #num_g = ...
+        num_a = new_str.count('A')
+        num_c = new_str.count('C')
+        num_t = new_str.count('T')
+        num_g = new_str.count('G')
 
         # count total number of different nucleotides in this column. 
         # e.g.,
         # - if col contains all A's, unique_nucs is 1, 
         # - if col contains half A's and half C's, unique_nucs is 2
         # - etc.
-        #unique_nucs = ...
+        count = 0
+        if num_a > 0:
+            count += 1
+        if num_c > 0:
+            count += 1
+        if num_t > 0:
+            count += 1
+        if num_g > 0:
+            count += 1
+        
+        unique_nucs = count
         
         # append count of unique nucs in this column 
         # to the list of diversity counts
-        #div_counts.append(unique_nucs)
+        div_counts.append(unique_nucs)
 
     # return the list of diversity counts (# of unique nucs in each col)
     return div_counts
@@ -126,25 +137,33 @@ def calc_codon_stats( div_counts ):
 
     # loop through the list of diversity counts, and add each of the 
     # counts to the appropriate sum (sum_pos_0, sum_pos_1, sum_pos_2)
-
+    count = 0
+    for div in div_counts:
+        if count % 3 == 0:
+            sum_pos_0 += div
+        elif count % 3 == 1:
+            sum_pos_1 += div
+        else:
+            sum_pos_2 += div
+        count += 1
 
     # now that you have the sums for each codon position, 
     # calculate average diversity for each codon position
     # note: the average for each position is the respective sum 
     #       divided by the number of codons 
-    #num_codons = ...
-    #avg_div_0 = ...
-    #avg_div_1 = ...
-    #avg_div_2 = ...
+    num_codons = len(div_counts) / 3
+    avg_div_0 = sum_pos_0 / num_codons
+    avg_div_1 = sum_pos_1 / num_codons
+    avg_div_2 = sum_pos_2 / num_codons
     
 
     # print stats
     # (uncomment once you've computed the averages)
-    #print("\nAverage diversity by nucleotide position within codons:")
-    #print("\tCodon position 1: " + str(avg_div_0))
-    #print("\tCodon position 2: " + str(avg_div_1))
-    #print("\tCodon position 3: " + str(avg_div_2))
-    #print("\n")
+    print("\nAverage diversity by nucleotide position within codons:")
+    print("\tCodon position 1: " + str(avg_div_0))
+    print("\tCodon position 2: " + str(avg_div_1))
+    print("\tCodon position 3: " + str(avg_div_2))
+    print("\n")
 
 
 #############################################################################
